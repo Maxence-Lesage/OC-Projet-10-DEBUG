@@ -1,9 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;700&family=Montserrat:wght@100;600;700&display=swap");
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-family: "Space Grotesk", sans-serif;
+  overflow-x: hidden;
 }
+
 .App {
   text-align: center;
 }
@@ -38,6 +44,7 @@ body {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
