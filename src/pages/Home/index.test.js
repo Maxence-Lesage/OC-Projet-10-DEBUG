@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, within } from "@testing-library/react";
 import Home from "./index";
 
 describe("When Form is created", () => {
@@ -27,18 +27,27 @@ describe("When Form is created", () => {
 
 });
 
-
 describe("When a page is created", () => {
-  it("a list of events is displayed", () => {
-    // to implement
+
+  it("a list of events is displayed", async () => {
+    render(<Home />);
+    const eventsList = await screen.findAllByTestId('card-testid');
+    expect(eventsList.length).toBeGreaterThan(0);
   })
-  it("a list a people is displayed", () => {
-    // to implement
+  it("a list a people is displayed", async () => {
+    render(<Home />);
+    const peopleCardList = await screen.findAllByTestId('peopleCard');
+    expect(peopleCardList.length).toBeGreaterThan(0);
   })
-  it("a footer is displayed", () => {
-    // to implement
+  it("a footer is displayed", async () => {
+    render(<Home />);
+    const pageFooter = await screen.findByTestId('page-footer');
+    expect(pageFooter).toBeInTheDocument();
   })
-  it("an event card, with the last event, is displayed", () => {
-    // to implement
+  it("an event card, with the last event, is displayed", async () => {
+    render(<Home />);
+    const parentElement = await screen.findByTestId('page-footer');
+    const lastEvent = await within(parentElement).findByTestId('card-testid');
+    expect(lastEvent).toBeInTheDocument();
   })
 });

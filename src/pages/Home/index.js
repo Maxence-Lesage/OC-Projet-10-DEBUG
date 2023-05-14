@@ -114,7 +114,7 @@ const Page = () => {
         </Modal>
       </div>
     </main>
-    <footer className="row">
+    <footer className="row" data-testid="page-footer">
       <div className="col presta">
         <h3>Notre derniére prestation</h3>
         <EventCard
